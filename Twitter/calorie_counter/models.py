@@ -5,7 +5,7 @@ class Item(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
     brand = models.CharField(max_length=100, blank=True, null=True)
     branded = models.BooleanField(default=False)
-    per_gram = models.IntegerField(default=0)
+    per_gram = models.FloatField(default=0)
     
     
     def __str__(self):
