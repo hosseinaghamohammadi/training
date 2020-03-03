@@ -8,6 +8,7 @@ class Item(models.Model):
     per_gram = models.FloatField(default=0)
     
     
+    
     def __str__(self):
         if self.brand == None:
             return self.name

@@ -1,17 +1,54 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>=)))</title>
 </head>
+
 <body>
     <form method="POST" action="{% url 'calorie_counter:insertion' %}">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Submit"/>
+
+        <p>
+            <label for="id_name">
+                Name:
+            </label>
+            <input autocomplete="off" type="text" name="name" maxlength="100" id="id_name" list="names">
+            <datalist id="names">
+                <!-- <option value="hashem"> -->
+            </datalist>
+        </p>
+        <p>
+            <label for="id_brand">
+                Brand:
+            </label>
+            <input autocomplete="off" type="text" name="brand" maxlength="100" id="id_brand">
+        </p>
+        <p>
+            <label for="id_calorie">
+                Calorie:
+            </label>
+            <input type="number" name="calorie" required="" id="id_calorie">
+        </p>
+        <p>
+            <label for="id_mass">
+                Mass:
+            </label>
+            <input type="number" name="mass" required="" id="id_mass">
+        </p>
+
+
+        <input type="submit" value="Submit" />
     </form>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    {% block javascript %}
+    <script src="{% static 'calorie_counter/js.js' %}"></script>
     
+    {% endblock %}
 </body>
+
 </html>
